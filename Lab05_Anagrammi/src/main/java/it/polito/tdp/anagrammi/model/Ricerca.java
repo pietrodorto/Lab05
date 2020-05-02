@@ -1,20 +1,17 @@
 package it.polito.tdp.anagrammi.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
-import it.polito.tdp.anagrammi.DAO.AnagrammaDAO;
+import java.util.Set;
 
 public class Ricerca {
 	
-	private List<String> soluzione;
-	private List<String> soluzioneerrata;
-	private List<String> soluzionecorretta;
-	private AnagrammaDAO anagrammadao = new AnagrammaDAO();
+	private Set<String> soluzione;
 	
-	public List<String> anagrammi(String parola){
+	public Set<String> anagrammi(String parola){
 		
-		this.soluzione = new ArrayList<>();
+		this.soluzione = new HashSet<>();
 		
         parola=parola.toUpperCase() ;
 		

@@ -5,7 +5,12 @@
 package it.polito.tdp.anagrammi;
 
 import java.net.URL;
+import java.util.HashSet;
 import java.util.ResourceBundle;
+import java.util.Set;
+
+import it.polito.tdp.anagrammi.model.Ricerca;
+import it.polito.tdp.lab04.model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,6 +18,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class FXMLController {
+	
+	private Ricerca model;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -37,11 +44,36 @@ public class FXMLController {
 
     @FXML
     void doAnagramma(ActionEvent event) {
+    	
+    	String parola = txtParola.getText();
+    	txtResultWrong.clear();
+    	txtResultCorrect.clear();
+    	
+    	if(parola.length()<2) {
+    		txtResultWrong.appendText("parola troppo corta");
+        	txtResultCorrect.appendText("parola troppo corta");
+        	return;
+    	}
+    	
+    	if(parola.length()>8) {
+    		txtResultWrong.appendText("parola troppo lunga");
+        	txtResultCorrect.appendText("parola troppo lunga");
+        	return;
+    	}
+    	
+    	Set<String> risultato = new HashSet<String>();
+    	
+    	if()
+    			
 
     }
 
     @FXML
     void doReset(ActionEvent event) {
+    	
+    	txtParola.clear();
+    	txtResultWrong.clear();
+    	txtResultCorrect.clear();
 
     }
 
@@ -54,4 +86,8 @@ public class FXMLController {
         assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
 
     }
+    
+    public void setModel(Ricerca model) {
+    	this.model = model;
+    	}
 }
