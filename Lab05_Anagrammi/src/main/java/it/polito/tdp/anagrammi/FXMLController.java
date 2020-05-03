@@ -9,8 +9,7 @@ import java.util.HashSet;
 import java.util.ResourceBundle;
 import java.util.Set;
 
-import it.polito.tdp.anagrammi.model.Ricerca;
-import it.polito.tdp.lab04.model.Model;
+import it.polito.tdp.anagrammi.model.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,7 +18,7 @@ import javafx.scene.control.TextField;
 
 public class FXMLController {
 	
-	private Ricerca model;
+	private Model ricerca;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -61,9 +60,16 @@ public class FXMLController {
         	return;
     	}
     	
-    	Set<String> risultato = new HashSet<String>();
+    	Set<String> risultato = this.ricerca.anagrammi(parola);
     	
-    	if()
+    	for(String s : risultato) {
+    		if(this.ricerca.isCorrect(s)) {
+    			txtResultCorrect.appendText(s);
+    		}
+    		else {
+    			txtResultWrong.appendText(s);
+    		}
+    	}
     			
 
     }
@@ -87,7 +93,7 @@ public class FXMLController {
 
     }
     
-    public void setModel(Ricerca model) {
-    	this.model = model;
+    public void setRicerca(Model ricerca) {
+    	this.ricerca = ricerca;
     	}
 }

@@ -1,17 +1,17 @@
 package it.polito.tdp.anagrammi.model;
 
-import java.util.List;
+import java.util.Set;
 
 public class TestRicerca {
 
 	public static void main(String[] args) {
 		
-        Ricerca ric = new Ricerca() ;
+        Model ric = new Model() ;
 		
-		List<String> ana_dog = ric.anagrammi("dog") ;
+		Set<String> ana_dog = ric.anagrammi("dog") ;
 		System.out.println(ana_dog) ;
 		
-		List<String> ana_vac = ric.anagrammi("vacanze") ;
+		Set<String> ana_vac = ric.anagrammi("vacanze") ;
 		System.out.println(ana_vac) ;
 
 

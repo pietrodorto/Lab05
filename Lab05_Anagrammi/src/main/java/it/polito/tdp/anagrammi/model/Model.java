@@ -5,10 +5,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Ricerca {
+import it.polito.tdp.anagrammi.DAO.AnagrammaDAO;
+
+public class Model {
 	
 	private Set<String> soluzione;
+	private AnagrammaDAO anagrammadao;
 	
+	
+	
+	
+
 	public Set<String> anagrammi(String parola){
 		
 		this.soluzione = new HashSet<>();
@@ -43,5 +50,8 @@ public class Ricerca {
 		}
 	}
 	
+	public boolean isCorrect(String anagramma){
+		return this.anagrammadao.isCorrect(anagramma);
+	}
 	
 }
