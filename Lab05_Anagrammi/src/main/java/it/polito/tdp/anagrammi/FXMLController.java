@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 
 public class FXMLController {
 	
-	private Model model;
+	private Model model = new Model() ;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -92,8 +92,9 @@ public class FXMLController {
         assert btnReset != null : "fx:id=\"btnReset\" was not injected: check your FXML file 'Scene.fxml'.";
 
     }
-    
+    /*
     public void setModel(Model model) {
     	this.model = model;
     	}
+    	*/
 }
