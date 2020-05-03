@@ -8,10 +8,10 @@ public class TestRicerca {
 		
         Model ric = new Model() ;
 		
-		Set<String> ana_dog = ric.anagrammi("dog") ;
+		Set<String> ana_dog = ric.anagrammi("car") ;
 		System.out.println(ana_dog) ;
 		
-		Set<String> ana_vac = ric.anagrammi("vacanze") ;
+		Set<String> ana_vac = ric.anagrammi("batman") ;
 		System.out.println(ana_vac) ;
 
 

@@ -9,16 +9,16 @@ import it.polito.tdp.anagrammi.DAO.AnagrammaDAO;
 
 public class Model {
 	
+	
+	private AnagrammaDAO anagrammadao = new AnagrammaDAO();
+	
 	private Set<String> soluzione;
-	private AnagrammaDAO anagrammadao;
-	
-	
 	
 	
 
 	public Set<String> anagrammi(String parola){
 		
-		this.soluzione = new HashSet<>();
+		this.soluzione = new HashSet<String>();
 		
         parola=parola.toUpperCase() ;
 		
@@ -26,7 +26,9 @@ public class Model {
 		for(int i=0; i<parola.length(); i++) {
 			disponibili.add(parola.charAt(i)) ;
 		}
+		
 		cerca("",0,disponibili);
+		
 		return this.soluzione;
 	}
 

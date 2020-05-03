@@ -10,54 +10,28 @@ import java.util.List;
 
 
 public class AnagrammaDAO {
-	 /*
-	public List<Word> getAllWord(){
-		
-		final String sql = "SELECT * FROM parola";
-		
-		List<Word> parole = new LinkedList<Word>();
-		
-		try {
-			Connection conn = ConnectDB.getConnection();
-			PreparedStatement st = conn.prepareStatement(sql);
-			
-			ResultSet rs = st.executeQuery();
-			
-			while(rs.next()) {
-				
-				Word w = new Word(rs.getInt("id"),rs.getString("nome"));
-				parole.add(w);
-				
-			}
-			
-			conn.close();
-			return parole;
-		} catch(SQLException e) {
-			throw new RuntimeException("Errore Db", e);
-		}
-	}
-	*/
+	
         public boolean isCorrect(String anagramma){
 		
         	final String sql = "SELECT * FROM parola WHERE nome = ?";
 		
-        	boolean presente = false;
+        	boolean presente ;
 		
         	try {
         		Connection conn = ConnectDB.getConnection();
         		PreparedStatement st = conn.prepareStatement(sql);
-			
+        		st.setString(1, anagramma);
+        		
         		ResultSet rs = st.executeQuery();
 			
         		if(rs.next()) {
 				
         			presente = true;
-        			conn.close();
 				}
         		else {
         			presente = false;
-        			conn.close();
         		}
+        		conn.close();
         		return presente;
         	} 	catch(SQLException e) {
         		throw new RuntimeException("Errore Db", e);

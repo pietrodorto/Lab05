@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 
 public class FXMLController {
 	
-	private Model ricerca;
+	private Model model;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -60,10 +60,10 @@ public class FXMLController {
         	return;
     	}
     	
-    	Set<String> risultato = this.ricerca.anagrammi(parola);
+    	Set<String> risultato = this.model.anagrammi(parola);
     	
     	for(String s : risultato) {
-    		if(this.ricerca.isCorrect(s)) {
+    		if(this.model.isCorrect(s)) {
     			txtResultCorrect.appendText(s);
     		}
     		else {
@@ -93,7 +93,7 @@ public class FXMLController {
 
     }
     
-    public void setRicerca(Model ricerca) {
-    	this.ricerca = ricerca;
+    public void setModel(Model model) {
+    	this.model = model;
     	}
 }
